@@ -185,8 +185,8 @@ const realPerson = {
 const { from, name, livesIn, languagesSpoken } = realPerson;
 console.log("name:", name);
 
-const { english } = languagesSpoken;
-console.log("english:", english);
+// const { english } = realPerson.languagesSpoken;
+// console.log("english:", english);
 
 const realPerson2 = {
   name: "Marie",
@@ -225,3 +225,85 @@ const [decartesSaidStuff, daVinciPainted, cowabanga, , raphaelWasJustThere] =
   nationalities;
 
 //   REST and SPREAD Parameters
+
+console.clear();
+
+const { german, english, ...rest } = languagesSpoken;
+console.log("rest:", rest);
+console.log("english:", english);
+
+const chessBoard = [
+  "king",
+  "queen",
+  "rook",
+  "rook",
+  "knight",
+  "knight",
+  "horse",
+  "horse",
+  "pawn",
+  "pawn",
+  "pawn",
+  "pawn",
+  "pawn",
+  "pawn",
+  "pawn",
+  "pawn",
+];
+
+const [theOneWhoMustSurvive, theBigBoss, ...theRestOfThePieces] = chessBoard;
+console.log("theRestOfThePieces:", theRestOfThePieces);
+console.log("theBigBoss:", theBigBoss);
+console.log("theOneWhoMustSurvive:", theOneWhoMustSurvive);
+
+console.clear();
+
+const clone1 = {
+  name: "Juan",
+  age: 13,
+};
+
+const clone2 = {
+  whichOne: "number 2, obviously",
+  where: "Oh Misty Eye of the Mountains, Below",
+  name: "Pablo2",
+};
+
+// SPREAD OPERATOR IN OBJECTS
+
+const clone = {
+  ...clone1,
+  ...clone2,
+};
+console.log("clone:", clone);
+
+const arr1 = [1, 2, 3];
+const arr2 = [4, 5, 6];
+const theBigBahama = [...arr1, ...arr2, ...arr1, ...arr2];
+console.log("theBigBahama:", theBigBahama);
+
+function allWordsToReferMeBy(name, specialGreeting, ...everyOtherOne) {
+  console.log("everyOtherOne:", everyOtherOne);
+  return `
+	Dear ${specialGreeting} ${name},
+	Or, as you may prefer, ${everyOtherOne.join(" or ")}
+	`;
+}
+
+console.log(
+  allWordsToReferMeBy(
+    "Andre",
+    "Teacher",
+    "Yo, wheres my car?",
+    "Anna",
+    "dont call me stacy",
+    "thats not my name"
+  )
+);
+
+function func(first) {
+  console.log("first:", first);
+}
+
+func(...[1, 2, 3, 4, 5, 6]);
+console.log(Math.max(...[1, 2, 3, 4, 5, 6, 7, 8, 9, 11]));
