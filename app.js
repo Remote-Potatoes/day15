@@ -96,14 +96,132 @@ obj.name = "Anna";
 console.log(obj === obj2);
 console.log("obj2:", obj2);
 
-const person = {
+const personThatIsDaniel = {
   name: "Daniel",
   age: 28,
   from: "Netherlands",
   speaks: ["Dutch", "English", "Russian", "French", "German"],
 };
 
-const danielLanguages = person.speaks;
+const danielLanguages = personThatIsDaniel.speaks;
 
 danielLanguages.push("Spanish");
 console.log("danielLanguages:", danielLanguages);
+
+console.clear();
+
+// Functions
+// functions -> declared with the `function` keyword and its independent and not aligned with anything
+// methods -> are always linked to an object you can see that something is a method, because it is preceded by a `.`
+
+const arrow = () => {};
+
+function nonArrow() {}
+
+const implicitReturnWithArrow = () => `Voila`;
+const explicitReturnWithArrow = () => {
+  return `Voila`;
+};
+
+const isCorrect = (name) => `Hello ${name}`;
+
+console.log(implicitReturnWithArrow());
+console.log(isCorrect(`Anna`));
+console.clear();
+class Person {
+  constructor(name) {
+    this.specialName = name;
+  }
+
+  sayName() {
+    console.log("Breathe in..., create suspense, Aaaaaaand");
+    setTimeout(() => {
+      console.log(this);
+      console.log(this.specialName);
+    }, 1000);
+  }
+}
+
+const person = new Person("Pablo");
+
+// person.sayName();
+
+const functionThatCreatesFood = (name, mainIngredient, time) => ({
+  name,
+  mainIngredient,
+  time,
+});
+
+const returnsArray = () => [1, 2, 3];
+
+console.log(functionThatCreatesFood("spagghetti", "spinach", 99));
+console.log(returnsArray());
+
+const juan = "juan";
+
+const object = {
+  juan,
+};
+
+const realPerson = {
+  name: "Chiao-I",
+  from: "Taiwan",
+  livesIn: "Germany",
+  languagesSpoken: {
+    english: "Conversational",
+    german: "Yeah, a bit",
+    taiwanese: "Almost native level, ehe he, jk, native, BITCH!",
+    mandarin: "Native level",
+    cantonese: "can understand as much as german",
+    japanese:
+      "just a bit, you know. similar languages, all around, to german and cantonese, clearly",
+  },
+};
+
+// const name = realPerson.name;
+// const from = realPerson.from;
+// const livesIn = realPerson.livesIn;
+// DESTRUCTURING IS LOVE 🫀
+const { from, name, livesIn, languagesSpoken } = realPerson;
+console.log("name:", name);
+
+const { english } = languagesSpoken;
+console.log("english:", english);
+
+const realPerson2 = {
+  name: "Marie",
+  from: "France",
+  livesIn: "France",
+  languagesSpoken: {
+    french: "Native, duh",
+    english: "Native, duh",
+    spanish:
+      "Off, they're those annoying neighbours always making noise, you need a way to shut them up",
+  },
+};
+
+const { name: nameFromRealPerson2 } = realPerson2;
+console.log("nameFromRealPerson2:", nameFromRealPerson2);
+
+console.clear();
+// destructuring in arrays
+
+const nationalities = [
+  "dutch",
+  "portuguese",
+  "english",
+  "spanish",
+  "french",
+  "taiwanese",
+  "australian",
+  "hungarian",
+  "ecuatorian",
+];
+
+// const firstNatinality = nationalities[0]
+// const secondNationality = nationalities[1]
+
+const [decartesSaidStuff, daVinciPainted, cowabanga, , raphaelWasJustThere] =
+  nationalities;
+
+//   REST and SPREAD Parameters
